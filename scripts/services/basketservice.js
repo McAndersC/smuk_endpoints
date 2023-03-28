@@ -119,9 +119,4 @@ const basketService = {
 
 };
 
-
-
-
-
-
 export default basketService;
