@@ -1,0 +1,8 @@
+.questions-accordian .questions-accordian-content {
+    display : none;
+}
+
+
+.questions-accordian.active .questions-accordian-content {
+    display : block;
+}

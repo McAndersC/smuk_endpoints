@@ -1,0 +1,21 @@
+@import url("./base.css");
+@import url("./navigation.css");
+@import url("./basket.css");
+@import url("./questions.css");
+
+
+.toggle-basket-btn {
+
+
+  background-color: green;
+  color: white;
+  border-radius: 10px;
+  padding: 15px 15px;
+  width: 100%;
+  text-align: center;
+
+}
+
+
+
+
