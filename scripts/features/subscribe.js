@@ -1,4 +1,3 @@
-import { config } from "../misc/config.js";
 import service from "../services/service.js";
 /* 
     Subscribe
@@ -20,25 +19,13 @@ const subscribe = {
             'message' : message.value
         }
 
-        fetch(`${config.path}/subscribe`, {
-
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'   
-            },
-            body : JSON.stringify(postObj),
-
-        }).then((response) => response.json()).then((response => {
+       service.submitMember(postObj).then((response => {
 
             let subscribeForm = document.querySelector('#subscribe-form');
             let subscribersContainer = document.querySelector('.subscribe-container')
-
             subscribeForm.style = 'display:none';
-
-            console.log('R', response)
             subscribersContainer.innerHTML = subscribe.formResponseTmpl(response);
        
-        
         }));
 
     },

@@ -27,4 +27,18 @@ service.postOrder = async (order) => {
 
 }
 
+service.submitMember = (postObj) => {
+
+    return fetch(`${config.path}/subscribe`, {
+
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'   
+        },
+        body : JSON.stringify(postObj),
+
+    }).then((response) => response.json())
+
+};
+
 export default service

@@ -30,7 +30,6 @@ const questions = {
 
     init : async () => {
 
-
         let questionContainer = document.querySelector('.questions-container');
 
         if(questionContainer)
