@@ -3,9 +3,7 @@ import basketservice from "../services/basketservice.js";
 
 /*
 
-
     Navigation Module
-
 
 */
 
@@ -39,9 +37,9 @@ const navigation = {
     ],
 
     // Template til rendring af vores menu.
-    tmpl : (data) => `<div>
+    template : (navDataList) => `<div>
         <ul>
-            ${data.map( (link) => `<li><a href="${link.page}">${link.title}</a></li>` ).join(' ')}
+            ${navDataList.map( (link) => `<li><a href="${link.page}">${link.title}</a></li>` ).join(' ')}
         </ul>
 
         <div class="toggle-basket-btn">Åbn/Luk Kurv :: Antal <span class="basket-amount">0</span></div>
@@ -66,12 +64,12 @@ const navigation = {
                     </form>
                 </div>
             </div>
-            
     </div>`,
 
     // Update metode vi kalder når kurven opdateres.
     update : () => {
  
+        console.log('Nvigation Update')
         const amountElements = document.querySelectorAll('.navigation .basket-amount');
     
         if(amountElements)
@@ -106,7 +104,7 @@ const navigation = {
         
         if(navigationElement) {
     
-            navigationElement.innerHTML = navigation.tmpl(navigation.navData);
+            navigationElement.innerHTML = navigation.template(navigation.navData);
     
             basket.init();
             navigation.addEvents();

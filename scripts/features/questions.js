@@ -1,5 +1,5 @@
 
-import { escapeHTML, unEscapeHTML } from "../services/helpers.js";
+import { unEscapeHTML } from "../services/helpers.js";
 import service from "../services/service.js";
 /* 
     Questions
@@ -30,14 +30,15 @@ const questions = {
 
     init : async () => {
 
+
         let questionContainer = document.querySelector('.questions-container');
 
         if(questionContainer)
         {
 
-            const response = await service.get('questions');
+            const questionsResult = await service.get('questions');
 
-            response.forEach(question => {
+            questionsResult.forEach(question => {
 
                 questionContainer.insertAdjacentHTML('beforeend', questions.template(question))
 
@@ -45,7 +46,7 @@ const questions = {
 
             questions.addEvents();
 
-            console.log(escapeHTML('<p>Vores brune pigmentering i huden kommer fra vores melaninceller, også kaldet melanocytter. De frigiver melanin til vores celler og lægger sig som en paraply oven på cellen for at beskytte cellens dna. Pigmentfejl skyldes skade eller forvirring i melanocytterne.</p>  <p>Det kan være på grund af at huden har været udsat for meget sol eller skyldes hormoner som f.eks. stress eller graviditet.</p> <p>Pigmentering i forbindelse med stress kan ske ved overproduktion af stress hormon da det minder meget om vores melaninstimulerende hormon, og på den måde snyder kroppen til at danne melanin.</p>'))
+            
         }
     }
 

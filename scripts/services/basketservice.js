@@ -5,7 +5,7 @@ import service from "./service.js";
 const basketService = {
 
     setBasket : (basket) => {
-
+        console.log('setBasket')
         localStorage.setItem('basket', JSON.stringify(basket));
     
         productbasket.init();
@@ -19,23 +19,26 @@ const basketService = {
 
     addToBasket : (productId) => {
 
+        // Henter Kurv fra localstorage
         let basket = basketService.getBasket();
-    
+       
         if(!basket) {
     
-            basket = [
+            basket = [];
+
+            basket.push(
                 {
                     id: productId,
                     amount: 1
                 }
-            ]
+            )
             
             //Setting Data in Local Storage
             basketService.setBasket(basket)
        
         } else {
     
-            let productAllreadyExists =  basket.find( (p) => p.id === productId );
+            let productAllreadyExists =  basket.find( (orderProduct) => orderProduct.id === productId );
     
             if(!productAllreadyExists)
             {
@@ -44,7 +47,7 @@ const basketService = {
                     id: productId,
                     amount: 1
                 })
-    
+
                 // Setting Data in Local Storage
                 basketService.setBasket(basket)
                 

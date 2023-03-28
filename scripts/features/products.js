@@ -41,7 +41,7 @@ const products = {
     // Udskriver produkterne i produkt container elementet.
     renderProducts : (productsList, productsContainer, recommended) => {
 
-        productsList.map(product => {
+        productsList.forEach(product => {
 
             if(product.recommended && recommended)
             {
@@ -57,19 +57,14 @@ const products = {
         });
 
         const addToBasketBtns = document.querySelectorAll('.product button.add');
-        const removeFromBasketBtns = document.querySelectorAll('.product button.remove');
-
+        
         addToBasketBtns.forEach( (addToBasketBtn) => {
 
             addToBasketBtn.addEventListener('click', products.addToBasket);
             
         })  
         
-        removeFromBasketBtns.forEach( (removeFromBasketBtn) => {
 
-            removeFromBasketBtn.addEventListener('click', products.removeFromBasket);
-            
-        })
 
     },
 
@@ -81,7 +76,6 @@ const products = {
 
         let cont = productsContainer || recomendedContainer;
 
-  
         if(cont)
         {
             let recommended = cont.classList.value === 'recommended-container';

@@ -3,7 +3,7 @@ const service = {}
 
 service.get = async (type) => {
 
-    return fetch(`${config.path}/${type}`).then((response) => response.json()).catch( (err) => console.log(err));
+    return fetch(`https://smuknu.webmcdm.dk/${type}`).then((response) => response.json()).catch( (err) => console.log(err));
 
 }
 
