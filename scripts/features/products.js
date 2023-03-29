@@ -48,7 +48,7 @@ const products = {
 
                 productsContainer.insertAdjacentHTML('beforeend', products.template(product))
 
-            } else {
+            } else if(!recommended) {
 
                 productsContainer.insertAdjacentHTML('beforeend', products.template(product))
 
