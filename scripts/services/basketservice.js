@@ -5,7 +5,7 @@ import service from "./service.js";
 const basketService = {
 
     setBasket : (basket) => {
-        console.log('setBasket')
+
         localStorage.setItem('basket', JSON.stringify(basket));
     
         productbasket.init();
@@ -64,12 +64,17 @@ const basketService = {
             email : email
         }
     
-        service.postOrder(order).then((orderResponse) => {
+        if(basketService.getBasket().length > 0) {
+
+            service.postOrder(order).then((orderResponse) => {
     
-            console.log('orderResponse', orderResponse)
-            basketService.setBasket([]);
-    
-        });
+                console.log('orderResponse', orderResponse)
+                basketService.setBasket([]);
+        
+            });
+
+        }
+
       
     
     },

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../index.js" type="module"></script>
+    <link rel="stylesheet" href="/styles/index.css">
+    <title>Testing SmukNu Endpoints</title>
+    <style>
+
+        body.dark .container.active .item {
+            background-color: black;
+        }
+
+        body.dark .container .item {
+            background-color: black;
+        }
+
+        .container {
+
+            background-color: red;
+        }
+
+        .container .sub-item {
+            background-color: green;
+            color: white;
+        }
+
+        .container .item {
+            background-color: blue;
+            color: white;
+        }
+
+
+        .container.active .item {
+            background-color: white;
+            color: blue;
+        }
+
+        .container.active .sub-item {
+            background-color: white;
+            color: blue;
+        }
+    </style>
+
+
+</head>
+<body class="dark">
+
+ 
+
+    
+    <div class="container active">
+        <div class="item">HELLO</div>
+        <div class="item">WORLD</div>
+        <div>
+            <div class="sub-item">TEST</div>
+            <div class="sub-item">HEST</div>
+        </div>
+    </div>
+    <script>
+        alert('HEOOL')
+        const cont = document.querySelector('.container');
+       
+        cont.addEventListener('click', (e) => e.currentTarget.classList.toggle('active'));
+    </script>
+</body>
+</html>

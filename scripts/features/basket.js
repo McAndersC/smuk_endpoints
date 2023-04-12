@@ -33,6 +33,7 @@ const basket = {
     
         }
 
+        basket.addEvents();
     },
 
     reset : () => {
@@ -70,7 +71,7 @@ const basket = {
             })
         
             basketPrice.innerHTML = `Total Price ${totalPrice}`;
-            basket.addEvents();
+
         }
     
     },
