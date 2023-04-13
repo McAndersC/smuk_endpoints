@@ -30,6 +30,33 @@ const subscribe = {
 
     },
 
+    validateFormOnUpdate : (e) => {
+
+        console.log(e.target.value, e.target.name)
+
+        if(e.target.name === 'email')
+        {
+            e.target.style.borderColor = "red"
+            e.target.style.color = "red"
+
+    
+        } else if(e.target.name === 'name')
+        {
+            e.target.style.borderColor = "red"
+            e.target.style.color = "red"
+
+       
+        } else if(e.target.name === 'message')
+        {
+            e.target.style.borderColor = "red"
+            e.target.style.color = "red"
+
+          
+        }
+
+        // alert('Du ændre i ' + e.target.name)
+    },
+
     init : async () => {
 
         let subscribeContainer = document.querySelector('.subscribe-container')
@@ -43,6 +70,7 @@ const subscribe = {
             {
 
                 form.addEventListener('submit', (e) => subscribe.validateAndSendForm(e));
+                form.addEventListener('input', (e) => subscribe.validateFormOnUpdate(e))
 
             }
       
