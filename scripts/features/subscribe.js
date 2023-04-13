@@ -1,3 +1,4 @@
+import { validateEmail } from "../services/helpers.js";
 import service from "../services/service.js";
 /* 
     Subscribe
@@ -36,10 +37,21 @@ const subscribe = {
 
         if(e.target.name === 'email')
         {
-            e.target.style.borderColor = "red"
-            e.target.style.color = "red"
+      
+            if(validateEmail(e.target.value)) {
 
-    
+                // Eller endnu bedre classList.add() istedet for dirkete på style
+                e.target.style.borderColor = "green"
+                e.target.style.color = "green"
+                
+            } else {
+
+                // Eller endnu bedre classList.add() istedet for dirkete på style
+                e.target.style.borderColor = "red"
+                e.target.style.color = "red"
+
+            }
+
         } else if(e.target.name === 'name')
         {
             e.target.style.borderColor = "red"
